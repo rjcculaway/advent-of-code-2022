@@ -1,3 +1,10 @@
+//-------------------------------------------------------------------------------------------------
+// Day 03 Part 01: Rucksack Reorganization
+// by Rene Jotham C. Culaway
+//
+// Find the item type that appears in both compartments of each rucksack.
+// What is the sum of the priorities of those item types?
+//-------------------------------------------------------------------------------------------------
 #include <iostream>
 #include <fstream>
 #include <unordered_set>
@@ -6,6 +13,9 @@
 #include <numeric>
 #include <execution>
 
+/// @brief Converts a character in ASCII to its equivalent priority. 1-26 is the priority for a to z, while 27-53 is the priority for A-Z.
+/// @param c The character to convert
+/// @return The priorty value of the character.
 int item_type_to_priority(char c)
 {
   int value = (int)c;
