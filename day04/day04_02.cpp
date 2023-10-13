@@ -46,7 +46,7 @@ struct Range
   /// @return A new range representing the intersection of the two ranges. If the ranges do not intersect, the start and end will be -1.
   Range operator&(Range b)
   {
-    if (start > b.end || b.start > end)
+    if (operator&&(b))
     {
       return Range(-1, -1);
     }
@@ -65,8 +65,7 @@ struct Range
   /// @return `true` if the Ranges intersect; `false` if not.
   bool operator&&(Range b)
   {
-    Range intersection = operator&(b);
-    return intersection.start != -1 && intersection.end != -1;
+    return start > b.end || b.start > end;
   }
 
   /// @brief Checks if two ranges are fully contained. Two ranges are fully contained if their intersection is just the smaller or equal range.
