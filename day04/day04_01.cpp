@@ -46,7 +46,7 @@ struct Range
   /// @return A new range representing the intersection of the two ranges. If the ranges do not intersect, the start and end will be -1.
   Range operator&(Range b)
   {
-    if (operator&&(b))
+    if (!operator&&(b))
     {
       return Range(-1, -1);
     }
