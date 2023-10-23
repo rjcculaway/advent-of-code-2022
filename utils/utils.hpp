@@ -5,6 +5,15 @@
 
 namespace utils
 {
+  size_t index_2d_to_1d(const size_t &i, const size_t &j, const size_t &width)
+  {
+    return j + width * i;
+  }
+
+  std::pair<size_t, size_t> index_1d_to_2d(const size_t &i, const size_t &width)
+  {
+    return std::pair(i % width, i / width);
+  }
   // Implements a vector-based max-heap.
   // This is one-indexed.
   template <class T>
@@ -13,12 +22,11 @@ namespace utils
     std::vector<T> heap;
 
   private:
-    size_t max_size;
     size_t size;
 
     void swap(size_t i, size_t j)
     {
-      size_t temp = heap[i];
+      T temp = heap[i];
       heap[i] = heap[j];
       heap[j] = temp;
       return;
@@ -162,7 +170,7 @@ namespace utils
     }
 
   public:
-    Heap(size_t max_size) : max_size(max_size)
+    Heap(size_t max_size)
     {
       heap.reserve(max_size + 1); // Due to one-indexing
       size = 0;
