@@ -3,3 +3,5 @@
 *.obj
 *.pdb
 .vscode
+*input*.txt
+*output*.txt
